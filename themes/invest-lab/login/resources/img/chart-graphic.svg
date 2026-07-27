@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="680" viewBox="0 0 920 680" fill="none">
+  <defs>
+    <linearGradient id="gridFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16303A" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#16303A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20D76F" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#20D76F" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF4141" stop-opacity=".88"/>
+      <stop offset="1" stop-color="#FF4141" stop-opacity=".1"/>
+    </linearGradient>
+  </defs>
+  <g opacity=".42">
+    <path d="M0 120.5H920" stroke="url(#gridFade)"/>
+    <path d="M0 204.5H920" stroke="url(#gridFade)"/>
+    <path d="M0 288.5H920" stroke="url(#gridFade)"/>
+    <path d="M0 372.5H920" stroke="url(#gridFade)"/>
+    <path d="M0 456.5H920" stroke="url(#gridFade)"/>
+    <path d="M0 540.5H920" stroke="url(#gridFade)"/>
+    <path d="M136 40V650" stroke="url(#gridFade)"/>
+    <path d="M274 40V650" stroke="url(#gridFade)"/>
+    <path d="M412 40V650" stroke="url(#gridFade)"/>
+    <path d="M550 40V650" stroke="url(#gridFade)"/>
+    <path d="M688 40V650" stroke="url(#gridFade)"/>
+    <path d="M826 40V650" stroke="url(#gridFade)"/>
+  </g>
+  <path d="M110 468C145 452 163 434 184 408C208 378 233 324 269 324C315 324 321 452 379 452C427 452 454 290 507 290C557 290 565 440 625 440C677 440 715 204 766 204C807 204 842 292 882 292" stroke="url(#greenGlow)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M126 504C161 504 197 558 230 558C275 558 307 366 348 366C392 366 425 512 471 512C520 512 543 252 592 252C639 252 675 404 716 404C765 404 793 180 828 180C856 180 874 224 894 250" stroke="url(#redGlow)" stroke-width="2" stroke-linecap="round"/>
+  <g opacity=".8">
+    <rect x="472" y="403" width="14" height="76" rx="1.5" fill="#18B85C"/>
+    <path d="M479 360V530" stroke="#18B85C" stroke-width="2"/>
+    <rect x="503" y="395" width="14" height="42" rx="1.5" fill="#A32332"/>
+    <path d="M510 350V482" stroke="#C83845" stroke-width="2"/>
+    <rect x="536" y="308" width="14" height="94" rx="1.5" fill="#18B85C"/>
+    <path d="M543 268V451" stroke="#18B85C" stroke-width="2"/>
+    <rect x="569" y="334" width="14" height="54" rx="1.5" fill="#A32332"/>
+    <path d="M576 294V430" stroke="#C83845" stroke-width="2"/>
+    <rect x="602" y="265" width="14" height="86" rx="1.5" fill="#18B85C"/>
+    <path d="M609 214V401" stroke="#18B85C" stroke-width="2"/>
+    <rect x="635" y="226" width="14" height="94" rx="1.5" fill="#18B85C"/>
+    <path d="M642 182V365" stroke="#18B85C" stroke-width="2"/>
+    <rect x="668" y="292" width="14" height="70" rx="1.5" fill="#A32332"/>
+    <path d="M675 246V402" stroke="#C83845" stroke-width="2"/>
+    <rect x="701" y="256" width="14" height="74" rx="1.5" fill="#18B85C"/>
+    <path d="M708 214V372" stroke="#18B85C" stroke-width="2"/>
+    <rect x="734" y="178" width="14" height="88" rx="1.5" fill="#18B85C"/>
+    <path d="M741 140V312" stroke="#18B85C" stroke-width="2"/>
+    <rect x="767" y="145" width="14" height="92" rx="1.5" fill="#18B85C"/>
+    <path d="M774 108V278" stroke="#18B85C" stroke-width="2"/>
+    <rect x="800" y="215" width="14" height="56" rx="1.5" fill="#A32332"/>
+    <path d="M807 178V305" stroke="#C83845" stroke-width="2"/>
+    <rect x="833" y="198" width="14" height="66" rx="1.5" fill="#18B85C"/>
+    <path d="M840 160V304" stroke="#18B85C" stroke-width="2"/>
+  </g>
+</svg>
