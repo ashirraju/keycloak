@@ -22,6 +22,9 @@
   --lh-18: 18px;
   --lh-16: 16px;
   --lh-14: 14px;
+
+  --select-color: #0296e0;
+  --font-green: #25c293;
 }
 
 /* Light Theme (Default / Toggle) */
@@ -177,6 +180,25 @@ body {
 .brand-logo-wrap img {
   height: 38px;
   width: auto;
+}
+
+.logo-invest {
+  color: var(--select-color, #0296e0);
+}
+
+.logo-lab {
+  color: var(--font-green, #25c293);
+}
+
+.brand-logo-text {
+  font-family: var(--font-primary);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
 }
 
 .theme-toggle-btn {

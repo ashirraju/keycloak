@@ -20,7 +20,7 @@
     <div class="page-shell">
       <header class="header-top">
         <div class="brand-logo-wrap">
-          <img src="${url.resourcesPath}/img/logo.svg" alt="${properties.brandName!"InvestLab"}" />
+          <span class="brand-logo-text"><span class="logo-invest">Invest</span><span class="logo-lab">Lab</span></span>
         </div>
         <button type="button" class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light theme">
           <span class="theme-icon light-icon" aria-hidden="true">☀️ Light</span>
