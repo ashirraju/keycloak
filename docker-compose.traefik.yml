@@ -11,8 +11,10 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       # Auto-redirect HTTP -> HTTPS
-      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      # Bind SSL Certificate Resolver to HTTPS entrypoint
+      - "--entrypoints.websecure.http.tls.certresolver=myresolver"
       # Let's Encrypt SSL certificate resolver
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.email=${SSL_EMAIL:-admin@yourdomain.com}"
@@ -69,7 +71,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.keycloak.rule=Host(`${DOMAIN_NAME:-auth.yourdomain.com}`)"
-      - "traefik.http.routers.keycloak.entrypoints=web,websecure"
+      - "traefik.http.routers.keycloak.entrypoints=websecure"
       - "traefik.http.routers.keycloak.tls=true"
       - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
       - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
