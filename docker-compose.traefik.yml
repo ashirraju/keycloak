@@ -9,22 +9,10 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      # Auto-redirect HTTP -> HTTPS
-      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
-      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
-      # Bind SSL Certificate Resolver to HTTPS entrypoint
-      - "--entrypoints.websecure.http.tls.certresolver=myresolver"
-      # Let's Encrypt SSL certificate resolver
-      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=${SSL_EMAIL:-admin@yourdomain.com}"
-      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - traefik_certs:/letsencrypt
     networks:
       - keycloak_net
 
@@ -50,6 +38,8 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    ports:
+      - "8080:8080"
     environment:
       KC_DB: postgres
       KC_DB_URL_HOST: postgres
@@ -57,10 +47,10 @@ services:
       KC_DB_URL_DATABASE: ${KC_DB_DATABASE:-keycloak}
       KC_DB_USERNAME: ${KC_DB_USERNAME:-keycloak}
       KC_DB_PASSWORD: ${KC_DB_PASSWORD:-changeit}
-      KC_HOSTNAME: ${KC_HOSTNAME:-https://auth.yourdomain.com}
+      KC_HOSTNAME: ${KC_HOSTNAME:-http://trader-news.co.in}
       KC_HTTP_ENABLED: "true"
       KC_PROXY_HEADERS: "xforwarded"
-      KC_HOSTNAME_STRICT_HTTPS: "true"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
       KC_THEME: invest-lab
       KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
@@ -70,17 +60,14 @@ services:
         condition: service_healthy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.keycloak.rule=Host(`${DOMAIN_NAME:-auth.yourdomain.com}`)"
-      - "traefik.http.routers.keycloak.entrypoints=websecure"
-      - "traefik.http.routers.keycloak.tls=true"
-      - "traefik.http.routers.keycloak.tls.certresolver=myresolver"
+      - "traefik.http.routers.keycloak.rule=Host(`${DOMAIN_NAME:-trader-news.co.in}`)"
+      - "traefik.http.routers.keycloak.entrypoints=web"
       - "traefik.http.services.keycloak.loadbalancer.server.port=8080"
     networks:
       - keycloak_net
 
 volumes:
   postgres_data:
-  traefik_certs:
 
 networks:
   keycloak_net:
