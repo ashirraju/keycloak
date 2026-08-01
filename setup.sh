@@ -60,9 +60,12 @@ EOF
     echo "✅ .env file created successfully."
 fi
 
+# Add current user to docker group
+sudo usermod -aG docker $USER || true
+
 # 7. Build and Start Production Docker Containers
 echo "🚀 Building and launching Keycloak + Traefik + Postgres..."
-docker compose -f docker-compose.traefik.yml up -d --build
+sudo docker compose -f docker-compose.traefik.yml up -d --build
 
 echo "=========================================================="
 echo "🎉 Setup Complete! Keycloak is booting up."

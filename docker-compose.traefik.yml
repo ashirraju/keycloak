@@ -15,8 +15,7 @@ services:
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
       # Bind SSL Certificate Resolver to HTTPS entrypoint
       - "--entrypoints.websecure.http.tls.certresolver=myresolver"
-      # ACME SSL certificate resolver (Buypass CA - Trusted, Free & No Rate Limits)
-      - "--certificatesresolvers.myresolver.acme.caserver=https://api.buypass.com/acme/directory"
+      # Let's Encrypt SSL certificate resolver
       - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
       - "--certificatesresolvers.myresolver.acme.email=${SSL_EMAIL:-admin@yourdomain.com}"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
