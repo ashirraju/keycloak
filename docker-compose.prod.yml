@@ -38,7 +38,7 @@ services:
       KC_THEME: invest-lab
       KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
-      JAVA_OPTS_APPEND: "-Xms128m -Xmx400m"
+      JAVA_OPTS_APPEND: "-Xms256m -Xmx768m -XX:+UseG1GC -XX:MaxMetaspaceSize=192m -XX:+ExitOnOutOfMemoryError"
     depends_on:
       postgres:
         condition: service_healthy
